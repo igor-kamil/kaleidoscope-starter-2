@@ -56,7 +56,7 @@ function drawRibbon(startX, startY, endX, endY) {
 
 function draw() {
 // opaque background
-background(12, 15, 24, 2);
+background(12, 15, 24, 10);
 
   // Draw only while dragging inside the canvas.
   if (mouseIsPressed && mouseX >= 0 && mouseX < width &&
