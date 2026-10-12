@@ -3,19 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My kaleidoscope</title>
+  <meta name="theme-color" content="#f2eee3">
+  <title>Mechanical Garden — Interactive Study</title>
   <style>
-    body { margin: 0; background: #0c0f18; color: #c6c9d4; font: 15px/1.5 system-ui, sans-serif; }
-    header { max-width: 720px; margin: 24px auto 16px; padding: 0 16px; }
-    h1 { font-size: 22px; margin: 0 0 6px; color: #f1f1ed; }
-    p { margin: 0; }
-    main { width: fit-content; margin: 0 auto 24px; }
-    canvas { display: block; max-width: calc(100vw - 32px); height: auto !important; }
+    :root {
+      color-scheme: light;
+      --paper: #f2eee3;
+      --ink: #26352d;
+      --muted-ink: #647168;
+      --sage: #758b70;
+      --brass: #b29a66;
+      --canvas: #0c0f18;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 system-ui, sans-serif;
+    }
+
+    .page {
+      width: min(100% - 40px, 1040px);
+      margin: 0 auto;
+      padding: clamp(40px, 8vh, 84px) 0 48px;
+    }
+
+    header {
+      margin: 0 auto clamp(32px, 6vh, 56px);
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--sage);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font: 500 clamp(3.25rem, 9vw, 7rem)/0.92 Georgia, "Times New Roman", serif;
+      letter-spacing: -0.065em;
+    }
+
+    h1 span {
+      color: var(--sage);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .description {
+      max-width: 34rem;
+      margin: 22px auto 0;
+      color: var(--muted-ink);
+      font-size: clamp(15px, 1.7vw, 17px);
+    }
+
+    main { width: 100%; }
+
+    .artwork-frame {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 8px;
+      border: 1px solid var(--brass);
+      background: rgb(255 255 255 / 24%);
+      box-shadow: 0 16px 48px rgb(38 53 45 / 8%);
+    }
+
+    #artwork-stage {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--canvas);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .interaction-hint {
+      margin: 18px auto 0;
+      color: var(--muted-ink);
+      font-size: 12px;
+      letter-spacing: 0.035em;
+      text-align: center;
+    }
+
+    .interaction-hint span {
+      padding: 0 0.45em;
+      color: var(--brass);
+    }
+
+    @media (max-width: 540px) {
+      .page {
+        width: min(100% - 28px, 1040px);
+        padding-top: 42px;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+
+      .artwork-frame { padding: 5px; }
+
+      .interaction-hint {
+        max-width: 24rem;
+        line-height: 1.9;
+      }
+
+      .interaction-hint span { padding: 0 0.2em; }
+    }
   </style>
 </head>
 <body>
-  <header><h1>This is kaleidoscope</h1><p>Drag to draw · C to clear · S to save a PNG</p></header>
-  <main></main>
+  <div class="page">
+    <header>
+      <p class="eyebrow">An interactive study in form and motion</p>
+      <h1>Mechanical <span>Garden</span></h1>
+      <p class="description">A delicate meeting of botanical gesture and mechanical symmetry. Draw a living pattern and watch it unfold.</p>
+    </header>
+
+    <main>
+      <section class="artwork-frame" aria-label="Mechanical Garden interactive artwork">
+        <div id="artwork-stage"></div>
+      </section>
+      <p class="interaction-hint">Drag to draw <span aria-hidden="true">·</span> Click to shift ink <span aria-hidden="true">·</span> C to clear <span aria-hidden="true">·</span> S to save a PNG</p>
+    </main>
+  </div>
+
   <script src="libraries/p5.min.js"></script>
   <script src="sketch.js"></script>
 </body>

@@ -1,15 +1,14 @@
-# Kaleidoscope starter
+# Mechanical Garden
 
-1. Extract the ZIP completely.
-2. In VS Code, choose **File → Open Folder** and open this folder.
-3. Edit `sketch.js`. Save with Ctrl+S (Windows/Linux) or Cmd+S (Mac).
-4. To run with no extra setup, double-click `index.html` in Finder/File Explorer. Refresh the browser after saving.
-5. Alternatively, use the P5 Server extension's Run Sketch command for a live preview of this project.
+An interactive p5.js drawing study in botanical gestures and mechanical symmetry.
 
-Drag on the canvas to draw. Press C to clear and S to download a PNG. Click the canvas before using keyboard shortcuts.
+## Run the artwork
 
-`index.html` loads the page and p5.js; `sketch.js` is your drawing code. Leave `libraries/` unchanged.
+1. Open this folder in VS Code, or open `index.html` in a browser.
+2. Drag across the dark canvas to draw symmetrical ribbons.
+3. Click the canvas to shift the ink color.
+4. Press **C** to clear the canvas or **S** to save the artwork as a PNG.
 
-The p5.js library (version 1.11.11, LGPL-2.1) is included so this starter can run without an internet connection. Copilot and extension installation need internet access. Library source: https://github.com/processing/p5.js/tree/v1.11.11
+The canvas resizes with the artwork page. Resizing clears the current drawing.
 
-The starter intentionally draws a single line. Develop it into your own kaleidoscope by following the tutorial.
+`index.html` contains the page layout and styling; `sketch.js` contains the drawing code. The included p5.js library in `libraries/` allows the project to run offline. It is p5.js version 1.11.11 (LGPL-2.1). Library source: https://github.com/processing/p5.js/tree/v1.11.11

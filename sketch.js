@@ -4,14 +4,21 @@ let ink = '#57dfc1';
 let segments = 8;
 let ribbonWidth = 12;
 let ribbonBulge = 1.25;
+let canvasStage;
 
 function setup() {
-  // canvas o fill available space in the browser window.
-  createCanvas(windowWidth, windowHeight);
+  canvasStage = document.getElementById('artwork-stage');
+  const canvas = createCanvas(canvasStage.clientWidth, canvasStage.clientHeight);
+  canvas.parent(canvasStage);
+  canvas.elt.setAttribute('aria-label', 'Interactive drawing canvas. Drag to draw symmetrical ribbons.');
   angleMode(DEGREES);
   background(12, 15, 24);
   strokeCap(ROUND);
-  
+}
+
+function windowResized() {
+  resizeCanvas(canvasStage.clientWidth, canvasStage.clientHeight);
+  background(12, 15, 24);
 }
 
 function mousePressed() {
